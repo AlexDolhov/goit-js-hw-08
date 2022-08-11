@@ -16,7 +16,11 @@ player.on('timeupdate', throttle(onPlay, 1000));
 
 //////
 
-player.setCurrentTime(localStorage.getItem(TIME_KEY));
+const savedTime = localStorage.getItem(TIME_KEY);
+if (savedTime) {
+  player.setCurrentTime(savedTime);
+}
+
 // .then(function (seconds) {
 //   // seconds = the actual time that the player seeked to
 //   console.log(seconds);
